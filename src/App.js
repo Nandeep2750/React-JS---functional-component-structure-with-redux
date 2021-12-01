@@ -11,8 +11,7 @@ import { BASENAME } from './components/config/constants';
 import Loader from './components/views/common/Loader'
 import Main from './components/container/Main'
 
-function App() {
-
+export function App() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
