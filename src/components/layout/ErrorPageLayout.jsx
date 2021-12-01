@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-class AdminLayout extends Component {
-
-    render() {
-        return (
-            <div className="">
-                {this.props.children}
-            </div>
-        )
-    }
+const Errorpagelayout = (props) => {
+    return (
+        <div className="">
+            {props.children}
+        </div>
+    );
 }
 
-export default AdminLayout
+export default Errorpagelayout;

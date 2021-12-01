@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-class GuestLayout extends Component {
-
-    render() {
-        return (
-            <div className="">
-                {this.props.children}
-            </div>
-        )
-    }
+const Guestlayout = (props) => {
+    return (
+        <div className="">
+            {props.children}
+        </div>
+    );
 }
 
-export default GuestLayout
+export default Guestlayout;
