@@ -5,9 +5,8 @@ import { toast } from 'react-toastify';
 
 import { userActions } from '../../../redux/actions/user.actions'
 
-import Api from "../../../helper/Api.js";
+import api from "../../../helper/Api.js";
 import { connect } from 'react-redux';
-const api = new Api();
 
 export const Login = (props) => {
 
@@ -16,9 +15,6 @@ export const Login = (props) => {
         className: 'text-danger',
     }));
 
-    const [headers, setHeaders] = useState({
-        'Content-Type': 'application/json'
-    });
     const [user, setUser] = useState({
         email: '',
         password: ''
@@ -35,16 +31,17 @@ export const Login = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (validator.current.allValid()) {
-
-            api.post("/api/login", {
-                headers: headers,
-                data: user
-            }).then(res => {
+            api.post("/api/login", {...user}).then(res => {
                 if (res.status === 200) {
                     props.login(res?.data);
                     props.history.push('/dashboard');
                 } else {
                     toast.error(res.message);
+                }
+            }).catch((err)=>{
+                console.log("🚀 ~ file: Login.jsx ~ line 49 ~ handleSubmit ~ err", err.response)
+                if(err?.response?.data){
+                    toast.error(err.response.data.error);
                 }
             })
 

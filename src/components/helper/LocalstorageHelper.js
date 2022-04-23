@@ -1,10 +1,10 @@
 // convert object to string and store in localStorage
 function saveToLocalStorage(userData) {
     try {
-        var user = { 
-            "loggedIn": true, 
+        var user = {
+            "loggedIn": true,
             "userData": userData,
-            "token" : userData.token 
+            "token": userData.token
         }
         localStorage.setItem('projectUser', JSON.stringify(user));
     } catch (e) {
@@ -26,7 +26,20 @@ function loadFromLocalStorage() {
     }
 }
 
+// function getLocalRefreshToken() {
+//     const user = JSON.parse(localStorage.getItem("projectUser"));
+//     return user?.userData?.refreshToken;
+// };
+
+function getLocalAccessToken() {
+    const user = JSON.parse(localStorage.getItem("projectUser"));
+    return user?.userData?.token;
+};
+
+
 export {
     saveToLocalStorage,
     loadFromLocalStorage,
+    // getLocalRefreshToken,
+    getLocalAccessToken
 }
