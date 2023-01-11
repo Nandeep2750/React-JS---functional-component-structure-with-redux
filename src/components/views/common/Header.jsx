@@ -2,8 +2,8 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import FeatherIcon from 'feather-icons-react';
 
-import { userActions } from '../../redux/actions/user.actions'
-import { Logo } from "../../image"
+import { userActions } from '../../../redux/actions/user.actions'
+import { Logo } from "../../../helper/importHelper/image"
 import { connect } from "react-redux";
 
 export const Header = (props) => {
